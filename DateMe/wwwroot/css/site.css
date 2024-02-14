@@ -1,0 +1,73 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding-top: 60px; /* Add top padding to body to ensure content is not hidden behind the fixed navbar */
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: fixed; /* Make header fixed */
+    top: 0;
+    width: 100%; /* Ensure the header spans the full width */
+    z-index: 1000; /* Ensure the header is above other content */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+    .nav-link:hover {
+        color: #0056b3;
+    }
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: lightgrey; /* Make background blend with the page or remove box effect */
+    text-align: center;
+    padding: 0; /* Remove padding if you want to minimize the footer's visual impact */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: none; /* Remove the border to eliminate the box effect */
+    height: 50px; /* Keep or adjust the height as needed */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+}
+
+    footer .container {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
