@@ -8,13 +8,13 @@ namespace Mission06_Nance.Models
         [Required]
         public int ApplicationID { get; set; }
         [Required]
-        public string Category { get; set; }
+        public string Main_Category { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
-        public string Year { get; set; }
+        public string Year_Released { get; set; }
         [Required]
-        public string Director { get; set; }
+        public string Primary_Director { get; set; }
         [Required]
         public string Rating { get; set; }
         //Add ? to make nullable

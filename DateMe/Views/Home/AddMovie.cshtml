@@ -21,17 +21,31 @@
 <!--create html form-->
 <h1>Add a Movie</h1>
 <form method="post">
-    <label asp-for="Category">Category: </label>
-    <input asp-for="Category" required/>
+    <label asp-for="Title">Movie Title</label>
+    <input asp-for="Title" required />
     <br />
-    <label asp-for ="Title">Title</label>
-    <input asp-for="Title" required/>
+    <label asp-for="Main_Category">Main Category: </label>
+    <select asp-for="Main_Category" required>
+        <option value="">Select a rating</option>
+        <option value="Drama">Drama</option>
+        <option value="Action">Action</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Television">Television</option>
+        <option value="Horror">Horror</option>
+        <option value="Comedy">Suspense</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Family">Family</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Romance">Romance</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+        <option value="Other">Other</option>
+     </select>
     <br />
-    <label asp-for="Year">Year: </label>
-    <input asp-for="Year" required/>
+    <label asp-for="Year_Released">Year Released: </label>
+    <input asp-for="Year_Released" required/>
     <br />
-    <label asp-for="Director">Director: </label>
-    <input asp-for="Director" required/>
+    <label asp-for="Primary_Director">Primary Director: </label>
+    <input asp-for="Primary_Director" required/>
     <br />
     <label asp-for="Rating">Rating</label>
     <select asp-for="Rating" required>
