@@ -17,7 +17,7 @@ namespace Mission06_Nance.Models
         public string Director { get; set; }
         [Required]
         public string Rating { get; set; }
-
+        //Add ? to make nullable
         public bool? Edited { get; set; }
 
         public string? LentTo { get; set; }
