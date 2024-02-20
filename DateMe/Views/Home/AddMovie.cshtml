@@ -21,34 +21,29 @@
 <!--create html form-->
 <h1>Add a Movie</h1>
 <form method="post">
+
+    <input type="hidden" asp-for="MovieId"/>
+  
     <label asp-for="Title">Movie Title</label>
-    <input asp-for="Title" required />
+    <input asp-for="Title" />
     <br />
-    <label asp-for="Main_Category">Main Category: </label>
-    <select asp-for="Main_Category" required>
-        <option value="">Select a rating</option>
-        <option value="Drama">Drama</option>
-        <option value="Action">Action</option>
-        <option value="Sci-Fi">Sci-Fi</option>
-        <option value="Television">Television</option>
-        <option value="Horror">Horror</option>
-        <option value="Comedy">Suspense</option>
-        <option value="Thriller">Thriller</option>
-        <option value="Family">Family</option>
-        <option value="Adventure">Adventure</option>
-        <option value="Romance">Romance</option>
-        <option value="Miscellaneous">Miscellaneous</option>
-        <option value="Other">Other</option>
-     </select>
+    
+    <select asp-for="CategoryId">
+        <option value="">Select A Category</option>
+        @foreach (CategoryCategory n in ViewBag.Categories)
+        {
+            <option value="@n.CategoryId">@n.Category</option>
+        }
+    </select>
     <br />
-    <label asp-for="Year_Released">Year Released: </label>
-    <input asp-for="Year_Released" type="number" required/>
+    <label asp-for="Year">Year Released: </label>
+    <input asp-for="Year" type="number" />
     <br />
-    <label asp-for="Primary_Director">Primary Director: </label>
-    <input asp-for="Primary_Director" required/>
+    <label asp-for="Director">Primary Director: </label>
+    <input asp-for="Director"/>
     <br />
     <label asp-for="Rating">Rating</label>
-    <select asp-for="Rating" required>
+    <select asp-for="Rating" >
         <option value="">Select a rating</option>
         <option value="G">G</option>
         <option value="PG">PG</option>
@@ -59,7 +54,7 @@
     <br />
     <label asp-for="Edited">Edited</label>
     <br />
-    <select asp-for="Edited">
+    <select asp-for="Edited" >
         <option value="">Select Edited Status</option>
         <option value="true">Yes</option>
         <option value="false">No</option>
@@ -68,8 +63,16 @@
     <label asp-for="LentTo">Lent To</label>
     <input asp-for="LentTo" />
     <br />
+    <select asp-for="CopiedToPlex" >
+        <option value="">Copied to plex?</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
     <label asp-for="Notes">Notes</label>
     <input asp-for="Notes" maxlength="25"/>
 
     <button type = "submit">Submit Application</button>
+
+    <div asp-validation-summary="All"></div>
 </form>
