@@ -6,6 +6,6 @@ namespace Mission06_Nance.Models
     {
         [Key]
         public int CategoryId { get; set; }
-        public string Category { get; set; }
+        public string? Category { get; set; }
     }
 }

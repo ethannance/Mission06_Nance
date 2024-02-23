@@ -57,15 +57,21 @@ namespace Mission06_Nance.Controllers
 
         public IActionResult Read()
         {
+
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.Category)
+                .ToList();
+
             //Linq
-            var applications = _context.Movies
-                .Where(x => x.Edited == true)
+            var applications = _context.Movies.Include("Category")
+                .Where(x => x.Title != null)
                 .OrderBy(x => x.MovieId).ToList();
+
             return View(applications);
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int id) //Edits selected record
         {
             var recordToEdit = _context.Movies
                 .Single(x => x.MovieId == id);
@@ -87,7 +93,7 @@ namespace Mission06_Nance.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id) //Deletes selected record
         {
             var recordToDelete = _context.Movies
                 .Single(x => x.MovieId == id);
