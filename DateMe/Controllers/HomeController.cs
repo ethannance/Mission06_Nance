@@ -86,11 +86,23 @@ namespace Mission06_Nance.Controllers
         [HttpPost]
         public IActionResult Edit(Application updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            if (ModelState.IsValid) // Check if the model state is valid
+            {
+                _context.Update(updatedInfo);
+                _context.SaveChanges();
 
-            return RedirectToAction("Read");
+                return RedirectToAction("Read");
+            }
+            else // Model state is not valid, return to the view with the current information
+            {
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.Category)
+                    .ToList();
+
+                return View("AddMovie", updatedInfo); // Use the same AddMovie view for editing, ensuring validation messages are displayed
+            }
         }
+
 
         [HttpGet]
         public IActionResult Delete(int id) //Deletes selected record
